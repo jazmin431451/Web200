@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Convert Distance</title>
+</head>
+<body>
+    <h1>Convert Distance</h1>
+    
+    <form onsubmit="convertDistance(); return false;">
+        <label for="length">Enter the length:</label>
+        <input type="text" id="length" name="length" required>
+        
+        <label for="width">Enter the width:</label>
+        <input type="text" id="width" name="width" required>
+
+        <label for="radius">Enter the radius:</label>
+        <input type="text" id="radius" name="radius" required>
+        
+        <input type="submit" value="Calculate">
+    </form>
+    
+    <div id="convertDistanceResult"></div>
+
+    <script>
+        "use strict";
+
+        function convertDistance() {
+            // Retrieve input values
+            const length = parseFloat(document.getElementById('length').value);
+            const width = parseFloat(document.getElementById('width').value);
+            const radius = parseFloat(document.getElementById('radius').value);
+
+            // Assuming you want the sum of the lengths, widths, and radii
+            const totalDistance = length + width + radius;
+
+            // Convert and display on the webpage
+            const resultDiv = document.getElementById('convertDistanceResult');
+            resultDiv.innerHTML = `<p>Imperial Units:</p>
+                                   <p>Yards: ${totalDistance * 1760}</p>
+                                   <p>Feet: ${totalDistance * 5280}</p>
+                                   <p>Inches: ${totalDistance * 63360}</p>
+                                   <p>Metric Units:</p>
+                                   <p>Kilometers: ${totalDistance * 1.60934}</p>
+                                   <p>Meters: ${totalDistance * 1609.34}</p>
+                                   <p>Centimeters: ${totalDistance * 160934}</p>`;
+        }
+    </script>
+</body>
+</html>

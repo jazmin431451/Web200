@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate the Area of a Room</title>
+</head>
+<body>
+    <h1>Calculate the Area of a Room</h1>
+    
+    <form onsubmit="calculateFloorCoveringArea(); return false;">
+        <label for="length">Enter the length:</label>
+        <input type="text" id="length" name="length" required>
+        
+        <label for="width">Enter the width:</label>
+        <input type="text" id="width" name="width" required>
+        
+        <input type="submit" value="Calculate">
+    </form>
+    
+    <div id="calculateFloorCoveringAreaResult"></div>
+    <script>
+        "use strict";
+
+        // Calculate and display floor covering required
+        function calculateFloorCoveringArea() {
+            const length = parseFloat(document.getElementById('length').value);
+            const width = parseFloat(document.getElementById('width').value);
+
+            const areaInSquareFeet = length * width;
+            const areaInSquareYards = areaInSquareFeet / 9; // 1 square yard = 9 square feet
+
+            const resultDiv = document.getElementById('calculateFloorCoveringAreaResult');
+            resultDiv.textContent = `Floor Covering Required: ${areaInSquareYards.toFixed(2)} square yards`;
+        }
+    </script>
+</body>
+</html>
